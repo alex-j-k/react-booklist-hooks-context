@@ -5,11 +5,17 @@ const NewBookForm = () => {
     const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
 
-    const {addBook} =  useContext(BookContext);
+    // const {addBook} =  useContext(BookContext); BELOW IS WITH REDUCER DISPACTH
+    const {dispatch} =  useContext(BookContext);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addBook(author, title);
+        // addBook(author, title);   BELOW IS WITH REDUCER DISPACTH
+        dispatch({type: 'ADD_BOOK', book: {
+            title , author
+        }});
+
         setAuthor('');
         setTitle('');
     }
