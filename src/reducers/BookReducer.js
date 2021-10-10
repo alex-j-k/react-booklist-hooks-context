@@ -13,10 +13,18 @@ export const bookReducer = (state, action) => {
             id: uuid()
         }]
 
-        case 'REMOVE_BOOK' :
-            return state.books.filter(book => book.id !==  action.id)
+        // case 'REMOVE_BOOK' :
+        //     return state.books.filter(book => book.id !==  action.id)
 
-        default:
-            return state
+        // default:
+        //     return state
+
+        case 'REMOVE_BOOK':
+            return state.filter(book => book.id !== action.id);
+          default:
+            return state;
+
+
+
     }
 }
